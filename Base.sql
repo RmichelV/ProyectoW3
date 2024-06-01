@@ -3,23 +3,17 @@ CREATE TABLE Menu (
     nombre VARCHAR(255)
 );
 
-
-
 CREATE TABLE Rol (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255)
 );
 
-
-
 CREATE TABLE RolMenu (
-    rol_id INT,
-    menu_id INT,
-    FOREIGN KEY (rol_id) REFERENCES rol(id),
-    FOREIGN KEY (menu_id) REFERENCES menu(id)
+    rolId INT,
+    menuId INT,
+    FOREIGN KEY (rolId) REFERENCES rol(id),
+    FOREIGN KEY (menuId) REFERENCES menu(id)
 );
-
-
 
 CREATE TABLE Usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -28,12 +22,10 @@ CREATE TABLE Usuario (
     fecha_nacimiento DATE,
     correo VARCHAR(255) UNIQUE,
     contraseña VARCHAR(255),
-    rol_id INT,
-    FOREIGN KEY (rol_id) REFERENCES rol(id)
+    rolId INT,
+    FOREIGN KEY (rolId) REFERENCES rol(id)
 );
 
-
-------------------
 CREATE TABLE Proveedor (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255),
@@ -41,65 +33,76 @@ CREATE TABLE Proveedor (
     telefono VARCHAR(20)
 );
 
-
-CREATE TABLE Tipo_de_producto (
+CREATE TABLE TipoDeProducto (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255)
 );
 
-
 CREATE TABLE Producto (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255),
-    tipo_de_producto_id INT,
-    precio_unitario DECIMAL(10,2),
+    tipoDeProductoId INT,
+    precioUnitario DECIMAL(10,2),
     stock INT,
-    FOREIGN KEY (tipo_de_producto_id) REFERENCES tipo_de_producto(id)
+    FOREIGN KEY (tipoDeProductoId) REFERENCES TipoDeProducto(id)
 );
-
 
 CREATE TABLE ProductoProveedor (
-    producto_id INT,
-    proveedor_id INT,
-    FOREIGN KEY (producto_id) REFERENCES producto(id),
-    FOREIGN KEY (proveedor_id) REFERENCES proveedor(id)
+    productoId INT,
+    proveedorId INT,
+    FOREIGN KEY (productoId) REFERENCES Producto(id),
+    FOREIGN KEY (proveedorId) REFERENCES Proveedor(id)
 );
-
 
 CREATE TABLE Comentario (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    usuario_id INT,
-    producto_id INT,
-    comentario TEXT,
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id),
-    FOREIGN KEY (producto_id) REFERENCES producto(id)
+    usuarioId INT,
+    productoId INT,
+    contenido TEXT,
+    FOREIGN KEY (usuarioId) REFERENCES usuario(id),
+    FOREIGN KEY (productoId) REFERENCES producto(id)
 );
-
 
 CREATE TABLE Carrito (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    producto_id INT,
-    usuario_id INT,
-    FOREIGN KEY (producto_id) REFERENCES producto(id),
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+    productoId INT,
+    usuarioId INT,
+    FOREIGN KEY (productoId) REFERENCES producto(id),
+    FOREIGN KEY (usuarioId) REFERENCES usuario(id)
 );
-
 
 CREATE TABLE Venta (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    usuario_id INT,
+    usuarioId INT,
     fecha DATE,
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+    FOREIGN KEY (usuarioId) REFERENCES usuario(id)
 );
-
 
 CREATE TABLE DetalleDeVenta (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    producto_id INT,
+    productoId INT,
     cantidad INT,
-    precio_total DECIMAL(10, 2),
-    venta_id INT,
-    FOREIGN KEY (producto_id) REFERENCES producto(id),
-    FOREIGN KEY (venta_id) REFERENCES Venta(id)
+    precioTotal DECIMAL(10, 2),
+    ventaId INT,
+    FOREIGN KEY (productoId) REFERENCES Producto(id),
+    FOREIGN KEY (ventaId) REFERENCES Venta(id)
 );
 
+CREATE TABLE Marca {
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(255)
+};
+
+CREATE TABLE ProductoProveedor (
+    productoId INT,
+    marcaId INT,
+    FOREIGN KEY (productoId) REFERENCES Producto(id),
+    FOREIGN KEY (marcaId) REFERENCES Marca(id)
+); 
+
+CREATE TABLE DatosQr {
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    usuarioId INT,
+    monto DECIMAL(10,2),
+    qr VARCHAR(255)
+};
