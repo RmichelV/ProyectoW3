@@ -1,16 +1,30 @@
 ﻿<Properties StartupConfiguration="{5D4FDA60-C857-488A-AB50-509EB16B06BB}|http">
-  <MonoDevelop.Ide.ItemProperties.ProyectoApi PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.ProyectoApi PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="ProyectoApi/Models/Producto.cs">
+    <Files>
+      <File FileName="ProyectoApi/Models/Producto.cs" Line="1" Column="1" />
+      <File FileName="ProyectoApi/Models/Comentario.cs" />
+      <File FileName="ProyectoApi/Models/Usuario.cs" />
+      <File FileName="ProyectoApi/Models/RolMenu.cs" />
+      <File FileName="ProyectoApi/Models/Venta.cs" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ProyectoApi">
-            <Node name="ProyectoApi" expanded="True">
+          <Node name="ProyectoApi" expanded="True">
+            <Node name="ProyectoApi">
               <Node name="Dependencies" expanded="True" />
               <Node name="Datos" expanded="True" />
               <Node name="Dto" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Producto.cs" selected="True" />
+              </Node>
               <Node name="Utilities" expanded="True" />
             </Node>
           </Node>
@@ -18,9 +32,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
 </Properties>

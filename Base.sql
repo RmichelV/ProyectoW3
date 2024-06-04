@@ -19,7 +19,7 @@ CREATE TABLE Usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255),
     apellido VARCHAR(255),
-    fecha_nacimiento DATE,
+    fechaNacimiento DATE,
     correo VARCHAR(255) UNIQUE,
     contraseña VARCHAR(255),
     rolId INT,
@@ -28,14 +28,15 @@ CREATE TABLE Usuario (
 
 CREATE TABLE Proveedor (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(255),
+    nombre VARCHAR(255) UNIQUE,
     direccion VARCHAR(255),
-    telefono VARCHAR(20)
+    telefono VARCHAR(20),
+    descripcion VARCHAR(255)
 );
 
 CREATE TABLE TipoDeProducto (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(255)
+    nombre VARCHAR(255) UNIQUE,
 );
 
 CREATE TABLE Producto (
@@ -90,7 +91,7 @@ CREATE TABLE DetalleDeVenta (
 
 CREATE TABLE Marca {
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(255)
+    nombre VARCHAR(255) UNIQUE
 };
 
 CREATE TABLE ProductoProveedor (
